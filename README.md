@@ -2,26 +2,23 @@
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
+Inbox Assistant is a multi-account email workspace. Users can connect their own Gmail or Microsoft Outlook account, review recent inbox messages, edit a suggested reply, and save it as a draft in their mailbox.
 
-Inbox Assistant is a portfolio-ready email workflow demo with a real Microsoft Outlook integration. Browse a sample inbox without signing in, edit suggested replies, or connect your own Outlook mailbox to read messages and save reply drafts.
-
-**Safety by design: the app can save drafts but does not implement sending email.** Review and send drafts yourself from Outlook.
-
-## Try it
-
-- Visit the site and open the **Interactive inbox demo** at `/app`.
-- Sample messages are fictional and stay in the browser.
-- To use a real mailbox, configure a Microsoft Entra app registration and the environment variables described in [the Outlook setup guide](docs/OUTLOOK_SETUP.md).
+**Safety by design: drafts only. The app does not send email.** Review and send drafts yourself in Gmail or Outlook.
 
 ## Features
 
-- Responsive inbox dashboard with sample data for a no-credentials demo.
-- Microsoft OAuth authorization-code flow.
-- Reads recent inbox messages using Microsoft Graph.
-- Editable suggested replies and saves them as reply drafts in Outlook.
-- No send endpoint or send button.
-- Encrypted, HTTP-only session cookie for OAuth tokens.
+- Sample inbox demo that works without credentials.
+- Per-user Google OAuth sign-in and Gmail API integration.
+- Per-user Microsoft OAuth sign-in and Microsoft Graph integration.
+- Read recent inbox messages and create reply drafts in the corresponding mailbox.
+- Encrypted, HTTP-only session cookies for OAuth sessions.
+- Privacy policy at `/privacy`.
 - Next.js App Router, TypeScript, React, and Vercel deployment support.
+
+## Try it
+
+Open `/app` on the deployed site. The sample inbox works without signing in. Connect Gmail or Outlook to load a real mailbox.
 
 ## Local development
 
@@ -33,28 +30,38 @@ cp .env.example .env.local
 npm run dev
 ```
 
-The demo works without environment variables. The Outlook connection needs a registered Microsoft application and the variables in `.env.local`. See [docs/OUTLOOK_SETUP.md](docs/OUTLOOK_SETUP.md).
+The demo works without environment variables. Live providers require OAuth app registrations and environment variables.
 
-## Deploy to Vercel
+## Vercel environment variables
 
-1. Import this GitHub repository in the [Vercel dashboard](https://vercel.com/new).
-2. Set the project root to the repository root. Vercel should detect Next.js automatically.
-3. Add `MICROSOFT_CLIENT_ID`, `MICROSOFT_CLIENT_SECRET`, `MICROSOFT_TENANT_ID`, `APP_URL`, and `SESSION_SECRET` as environment variables.
-4. Add the production OAuth callback URL to the Microsoft app registration: `https://YOUR-VERCEL-DOMAIN/api/auth/microsoft/callback`.
-5. Deploy, then test `/app` with sample data before connecting Outlook.
+- `APP_URL`: canonical deployed origin, for example `https://your-app.vercel.app`, with no trailing slash.
+- `SESSION_SECRET`: random secret at least 32 characters long.
+- `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: Google OAuth web client.
+- `MICROSOFT_CLIENT_ID`, `MICROSOFT_CLIENT_SECRET`, `MICROSOFT_TENANT_ID`: Microsoft Entra app registration.
 
-See [the Outlook setup guide](docs/OUTLOOK_SETUP.md) for full instructions. Do not commit real credentials or `.env.local`.
+Add the exact redirect URIs to each provider:
 
-## Security notes
+- Google: `https://YOUR_DOMAIN/api/auth/google/callback`
+- Microsoft: `https://YOUR_DOMAIN/api/auth/microsoft/callback`
 
-- The live integration uses delegated Microsoft Graph permissions for the signed-in account.
-- `Mail.ReadWrite` allows reading mail and creating drafts; the app intentionally has no send-mail action.
-- Treat this as a single-user portfolio starter, not a public multi-tenant email service. Add a full production security review, abuse protections, monitoring, and privacy disclosures before inviting general users.
-- Never share client secrets, session secrets, OAuth tokens, real email contents, or mailbox exports in GitHub issues or portfolio screenshots.
+See [Gmail setup](docs/GMAIL_SETUP.md) and [Outlook setup](docs/OUTLOOK_SETUP.md). Never commit secrets or `.env.local`.
 
-## Project
+## Google public-launch requirements
+
+The Gmail integration requests `gmail.readonly` to show inbox content and `gmail.compose` to create drafts. Google may require OAuth app verification, and restricted-scope access through a server may require an independent security assessment. Until Google approves the consent screen and scopes, the app may only work for configured test users. Read the [Gmail setup guide](docs/GMAIL_SETUP.md) before inviting the public.
+
+The current implementation stores the encrypted OAuth refresh token in an HTTP-only session cookie and does not intentionally persist message content in a database. Before public launch, complete a security review and consider a dedicated encrypted session store, rate limits, abuse protection, monitoring, account revocation handling, and incident response.
+
+## Privacy and safety
+
+- The app requests delegated access to the signed-in user's own mailbox.
+- It does not have a send-email endpoint or send button.
+- Review the [Privacy Policy](/privacy).
+- Public availability depends on provider OAuth approval and production configuration; deployment alone does not make Google OAuth verified.
+
+## Project links
 
 - Interactive dashboard: `/app`
-- Outlook integration setup: [docs/OUTLOOK_SETUP.md](docs/OUTLOOK_SETUP.md)
-- Original ChatGPT Work prompt: [prompts/inbox-assistant.md](prompts/inbox-assistant.md)
-- License: MIT
+- [Gmail setup](docs/GMAIL_SETUP.md)
+- [Outlook setup](docs/OUTLOOK_SETUP.md)
+- [MIT License](LICENSE)
