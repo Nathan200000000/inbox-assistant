@@ -4,10 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Inbox Assistant — thoughtful replies, on your time",
   description:
-    "A free, reusable ChatGPT Work setup that finds emails needing a reply and prepares drafts for your review.",
+    "A portfolio-ready email dashboard with a sample inbox and Microsoft Outlook reply drafts for your review.",
   openGraph: {
     title: "Inbox Assistant",
-    description: "A calmer way to handle email, with every reply held for your approval.",
+    description: "Explore the inbox demo or connect Outlook to save reply drafts. Nothing is sent automatically.",
     type: "website",
   },
 };
