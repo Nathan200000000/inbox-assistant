@@ -1,6 +1,6 @@
 # Inbox Assistant
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FNathan200000000%2Finbox-assistant)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
 
 
 Inbox Assistant is a portfolio-ready email workflow demo with a real Microsoft Outlook integration. Browse a sample inbox without signing in, edit suggested replies, or connect your own Outlook mailbox to read messages and save reply drafts.
