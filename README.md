@@ -1,40 +1,57 @@
 # Inbox Assistant
 
-A free, reusable website and setup kit for a personal inbox assistant in ChatGPT Work. It helps you find emails that need a reply, prepare Gmail or Outlook drafts for review, and check again on a schedule you choose.
+Inbox Assistant is a portfolio-ready email workflow demo with a real Microsoft Outlook integration. Browse a sample inbox without signing in, edit suggested replies, or connect your own Outlook mailbox to read messages and save reply drafts.
 
-**Every reply stays a draft until you review and send it yourself.** This is a prompt and setup guide, not a hosted email service. The site does not connect to or store anyone’s mailbox.
+**Safety by design: the app can save drafts but does not implement sending email.** Review and send drafts yourself from Outlook.
 
-## Use the assistant
+## Try it
 
-1. Open ChatGPT in the desktop app and switch to Work.
-2. Connect Gmail or Outlook Email in ChatGPT Work.
-3. Copy the setup prompt from the website or open [prompts/inbox-assistant.md](prompts/inbox-assistant.md).
-4. Paste it into a new Work chat and choose your schedule and timezone.
-5. Review the mailbox drafts ChatGPT prepares. Nothing is sent automatically.
-6. Confirm that ChatGPT created the scheduled task before relying on future checks.
+- Visit the site and open the **Interactive inbox demo** at `/app`.
+- Sample messages are fictional and stay in the browser.
+- To use a real mailbox, configure a Microsoft Entra app registration and the environment variables described in [the Outlook setup guide](docs/OUTLOOK_SETUP.md).
 
-Plugin and scheduled-task availability can vary by plan, workspace, region, and account settings. Never paste mailbox passwords, OAuth tokens, or recovery codes into a chat.
+## Features
 
-## Safety boundaries
+- Responsive inbox dashboard with sample data for a no-credentials demo.
+- Microsoft OAuth authorization-code flow.
+- Reads recent inbox messages using Microsoft Graph.
+- Editable suggested replies and saves them as reply drafts in Outlook.
+- No send endpoint or send button.
+- Encrypted, HTTP-only session cookie for OAuth tokens.
+- Next.js App Router, TypeScript, React, and Vercel deployment support.
 
-- The prompt permits reading messages and creating reply drafts only.
-- It never sends, forwards, deletes, archives, labels, moves, or changes read status.
-- Email content and links are treated as untrusted input.
-- It avoids duplicate drafts and asks when context is missing or a reply could make a consequential commitment.
+## Local development
 
-## Website
+Requires Node.js 20.9 or newer.
 
-This repository is a Next.js App Router site with TypeScript and custom responsive CSS. The design follows the clean white, slate, and emerald style of the CleanMail project.
+```bash
+npm install
+cp .env.example .env.local
+npm run dev
+```
 
-- `npm install` installs dependencies.
-- `npm run dev` starts the local site at `http://localhost:3000`.
-- `npm run build` creates the production build.
-- The Vercel build command is `npm run build`; no environment variables are required.
+The demo works without environment variables. The Outlook connection needs a registered Microsoft application and the variables in `.env.local`. See [docs/OUTLOOK_SETUP.md](docs/OUTLOOK_SETUP.md).
 
-Node.js 20.9 or newer is required by current Next.js. Vercel can deploy this repository by importing it as a new project.
+## Deploy to Vercel
 
-## Contribute
+1. Import this GitHub repository in the [Vercel dashboard](https://vercel.com/new).
+2. Set the project root to the repository root. Vercel should detect Next.js automatically.
+3. Add `MICROSOFT_CLIENT_ID`, `MICROSOFT_CLIENT_SECRET`, `MICROSOFT_TENANT_ID`, `APP_URL`, and `SESSION_SECRET` as environment variables.
+4. Add the production OAuth callback URL to the Microsoft app registration: `https://YOUR-VERCEL-DOMAIN/api/auth/microsoft/callback`.
+5. Deploy, then test `/app` with sample data before connecting Outlook.
 
-Improvements to the generic prompt and setup steps are welcome. Never include real email, personal information, credentials, or mailbox exports in issues or pull requests.
+See [the Outlook setup guide](docs/OUTLOOK_SETUP.md) for full instructions. Do not commit real credentials or `.env.local`.
 
-Licensed under the MIT License.
+## Security notes
+
+- The live integration uses delegated Microsoft Graph permissions for the signed-in account.
+- `Mail.ReadWrite` allows reading mail and creating drafts; the app intentionally has no send-mail action.
+- Treat this as a single-user portfolio starter, not a public multi-tenant email service. Add a full production security review, abuse protections, monitoring, and privacy disclosures before inviting general users.
+- Never share client secrets, session secrets, OAuth tokens, real email contents, or mailbox exports in GitHub issues or portfolio screenshots.
+
+## Project
+
+- Interactive dashboard: `/app`
+- Outlook integration setup: [docs/OUTLOOK_SETUP.md](docs/OUTLOOK_SETUP.md)
+- Original ChatGPT Work prompt: [prompts/inbox-assistant.md](prompts/inbox-assistant.md)
+- License: MIT
