@@ -28,6 +28,7 @@ export default function Home() {
         </a>
         <nav aria-label="Main navigation">
           <a href="#how-it-works">How it works</a>
+          <a href="/privacy">Privacy</a>
           <a className="github-link" href="https://github.com/Nathan200000000/inbox-assistant" target="_blank" rel="noreferrer">
             GitHub <span aria-hidden="true">↗</span>
           </a>
