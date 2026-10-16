@@ -1,10 +1,10 @@
 # Inbox Assistant
 
-A small, reusable setup kit for a personal inbox assistant in ChatGPT Work. It helps you find email that needs a reply, prepare Outlook or Gmail drafts for review, and check again on a schedule you choose.
+A small, reusable setup kit and landing page for a personal inbox assistant in ChatGPT Work. It helps you find email that needs a reply, prepare Outlook or Gmail drafts for review, and check again on a schedule you choose.
 
 **It does not send replies.** Every reply stays a draft in your own mailbox until you review and send it yourself.
 
-This repository contains setup instructions and a copyable prompt; it is not a hosted email service or a standalone app. Each person connects their own mailbox in ChatGPT. Plugin and scheduled-task availability can vary by plan, workspace, region, and account settings.
+This repository contains a static landing page, setup instructions, and a copyable prompt; it is not a hosted email service or a standalone app. Each person connects their own mailbox in ChatGPT. Plugin and scheduled-task availability can vary by plan, workspace, region, and account settings.
 
 ## Set it up
 
@@ -36,7 +36,14 @@ If the email plugin is unavailable, check your workspace's plugin settings or us
 
 - [`prompts/inbox-assistant.md`](prompts/inbox-assistant.md): copyable setup prompt.
 - [`LICENSE`](LICENSE): MIT License.
+- [`index.html`](index.html) and [`styles.css`](styles.css): static website source.
+
+## Deploy
+
+Connect this repository to Vercel as a static site. The repository root contains `index.html`; no build command or environment variables are required.
 
 ## Contribute
 
 Improvements to the generic prompt and setup steps are welcome. Never include real email, personal information, credentials, or mailbox exports in issues or pull requests.
+
+
