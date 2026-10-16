@@ -43,6 +43,7 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <CopyPromptButton className="button button-primary" />
+            <a className="button button-secondary" href="/app">Try the interactive demo ↗</a>
             <a className="button button-secondary" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
           </div>
           <p className="privacy-line"><span aria-hidden="true">✓</span> Drafts only. Nothing is sent without your approval.</p>
