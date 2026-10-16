@@ -118,3 +118,61 @@ button { font: inherit; }
 .copy-status { min-height: 12px; color: #62716d; font-size: 10px; }
 .copy-status a { color: var(--green); text-decoration: underline; text-underline-offset: 2px; }
 .cta-action .copy-control { margin-bottom: 12px; }
+
+.workspace { min-height: 100vh; background: #f7f9f8; }
+.app-topbar { height: 70px; padding: 0 max(24px, calc((100vw - 1440px) / 2)); display:flex; align-items:center; justify-content:space-between; background:#fff; border-bottom:1px solid var(--line); }
+.app-nav { display:flex; align-items:center; gap:22px; font-size:12px; color:#5c6971; }
+.connection-pill,.count-pill,.draft-status { border-radius:20px; padding:7px 10px; background:#f0f3f2; color:#5c6971; font-size:10px; white-space:nowrap; }
+.connection-pill.connected { background:#e6f5ee; color:#147d64; }
+.app-shell { width:min(1440px,100%); margin:0 auto; padding:28px 24px; display:grid; grid-template-columns:220px minmax(300px,1fr) minmax(300px,.88fr); gap:18px; align-items:start; }
+.app-sidebar,.mail-panel,.draft-panel { background:#fff; border:1px solid #e4eae7; border-radius:12px; padding:22px; min-width:0; }
+.app-sidebar { position:sticky; top:18px; }
+.app-sidebar h1 { margin:13px 0 8px; font-size:24px; letter-spacing:-.06em; }
+.sidebar-copy { color:var(--muted); font-size:12px; line-height:1.65; margin:0 0 20px; }
+.connect-button { width:100%; min-height:42px; padding-inline:10px; font-size:11px; }
+.text-button { margin-top:10px; border:0; background:transparent; color:var(--green); font-size:11px; cursor:pointer; }
+.sidebar-stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:25px; }
+.sidebar-stats div { background:#f8faf9; border:1px solid #edf0ef; border-radius:8px; padding:11px 9px; }
+.sidebar-stats strong,.sidebar-stats span { display:block; }
+.sidebar-stats strong { font-size:21px; letter-spacing:-.05em; }
+.sidebar-stats span { margin-top:4px; color:var(--muted); font-size:9px; line-height:1.4; }
+.sidebar-info { display:flex; gap:9px; margin-top:24px; padding-top:20px; border-top:1px solid var(--line); }
+.shield { display:grid; place-items:center; flex:0 0 25px; height:25px; border-radius:8px; background:var(--green-soft); color:var(--green); font-weight:700; }
+.sidebar-info strong { font-size:10px; }
+.sidebar-info p,.sidebar-foot { color:var(--muted); font-size:10px; line-height:1.6; }
+.sidebar-info p { margin:6px 0 0; }
+.sidebar-foot { margin:22px 0 0; }
+.panel-heading,.draft-panel-head { display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.panel-heading h2,.draft-panel-head h2 { margin:7px 0 0; font-size:20px; letter-spacing:-.045em; }
+.mode-note { margin:17px 0 12px; color:#718078; font-size:10px; }
+.error-note { padding:10px; background:#fff2ef; color:#a33828; border-radius:7px; font-size:11px; overflow-wrap:anywhere; }
+.mail-list { border-top:1px solid var(--line); }
+.mail-row { width:100%; display:flex; align-items:flex-start; gap:10px; padding:16px 0; border:0; border-bottom:1px solid var(--line); background:#fff; text-align:left; cursor:pointer; }
+.mail-row.selected { background:#f4faf7; box-shadow:inset 3px 0 var(--green); padding-left:9px; padding-right:7px; }
+.mail-avatar { flex:0 0 34px; height:34px; display:grid; place-items:center; border-radius:50%; background:#eaf1ed; color:#526a60; font-size:10px; font-weight:700; }
+.mail-summary { display:flex; flex:1; min-width:0; flex-direction:column; gap:5px; }
+.mail-summary strong { font-size:11px; }
+.mail-subject { font-size:11px; font-weight:650; }
+.mail-excerpt { display:-webkit-box; overflow:hidden; -webkit-line-clamp:2; -webkit-box-orient:vertical; color:var(--muted); font-size:10px; line-height:1.55; }
+.mail-time { display:flex; flex-direction:column; align-items:flex-end; gap:7px; color:#8b9690; font-size:9px; white-space:nowrap; }
+.mail-time i { color:var(--green); font-size:9px; font-style:normal; }
+.draft-status { background:#fff5df; color:#8c6b27; }
+.reply-context { display:grid; grid-template-columns:1fr; gap:7px; margin-top:20px; padding:14px; background:#f8faf9; border:1px solid #edf0ef; border-radius:8px; }
+.reply-context span,.original-message > span { color:#78857e; font-size:8px; font-weight:700; letter-spacing:.1em; }
+.reply-context strong { font-size:11px; overflow-wrap:anywhere; }
+.reply-context a { color:var(--green); font-size:10px; margin-top:4px; }
+.original-message { margin:18px 0; padding:14px; border-left:2px solid #c8ddd3; background:#fbfcfb; }
+.original-message p { margin:8px 0 0; color:#637069; font-size:11px; line-height:1.7; }
+.reply-label { display:block; margin:18px 0 9px; font-size:10px; font-weight:700; }
+.draft-panel textarea { display:block; width:100%; min-height:185px; resize:vertical; padding:13px; border:1px solid #dfe7e2; border-radius:8px; color:#35423b; background:#fff; font:12px/1.7 Arial,Helvetica,sans-serif; }
+.draft-panel textarea:focus { outline:2px solid #b6dfce; border-color:#8fc7af; }
+.save-draft-button { width:100%; margin-top:14px; font-size:11px; }
+.save-draft-button:disabled { opacity:.55; cursor:not-allowed; }
+.draft-disclaimer { color:var(--muted); font-size:9px; line-height:1.65; }
+.empty-state { padding:28px 8px; text-align:center; color:var(--muted); font-size:12px; line-height:1.6; }
+.empty-state strong { color:var(--ink); font-size:14px; }
+.empty-state .button { margin-top:8px; }
+.app-footer { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding:20px 28px; border-top:1px solid var(--line); background:#fff; color:#7b8781; font-size:10px; }
+.app-footer a { color:var(--green); }
+@media(max-width:1100px) { .app-shell { grid-template-columns:200px minmax(0,1fr); } .draft-panel { grid-column:2; } .app-sidebar { grid-row:span 2; } }
+@media(max-width:700px) { .app-topbar { padding-inline:16px; } .app-nav { gap:12px; } .app-nav>a:first-child { display:none; } .app-shell { display:flex; flex-direction:column; padding:15px 12px; } .app-sidebar,.mail-panel,.draft-panel { width:100%; padding:17px; } .app-sidebar { position:static; } .sidebar-stats { max-width:280px; } .app-footer { padding:18px; } }
