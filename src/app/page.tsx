@@ -4,17 +4,17 @@ const steps = [
   {
     number: "01",
     title: "Connect your inbox",
-    text: "In ChatGPT Work, connect Gmail or Outlook Email. Your account stays yours; this project never asks for your password.",
+    text: "Connect Microsoft Outlook securely, or explore the sample inbox without signing in.",
   },
   {
     number: "02",
     title: "Choose your boundaries",
-    text: "Copy the setup prompt, choose what needs a reply, and set a daily check time that fits your day.",
+    text: "Review incoming messages and edit a suggested reply before saving it as a draft.",
   },
   {
     number: "03",
     title: "Review every draft",
-    text: "Suggested replies wait in your mailbox Drafts. Edit or send them yourself whenever you’re ready.",
+    text: "Replies are saved as drafts in Outlook. You decide if and when to send them.",
   },
 ];
 
@@ -39,7 +39,7 @@ export default function Home() {
           <p className="eyebrow"><span className="live-dot" /> YOUR INBOX, ON YOUR TERMS</p>
           <h1>Thoughtful replies.<br /><span>On your time.</span></h1>
           <p className="lead">
-            A personal inbox assistant for ChatGPT Work. Find the messages waiting on you, draft a considered reply, and come back to a calmer inbox.
+            A focused email workspace with a live Outlook connection and a sample inbox you can explore instantly. Find messages, edit thoughtful replies, and save drafts for your review.
           </p>
           <div className="hero-actions">
             <CopyPromptButton className="button button-primary" />
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="section-intro">
           <p className="eyebrow">SIMPLE TO SET UP</p>
           <h2>More focus.<br /><span>Less inbox.</span></h2>
-          <p>Start with the prompt, then make the assistant’s boundaries and schedule your own.</p>
+          <p>Try the portfolio demo first, then configure Outlook to use your own inbox.</p>
         </div>
         <div className="steps">
           {steps.map((step) => (
@@ -102,8 +102,8 @@ export default function Home() {
             <h2>Your inbox stays<br /><span>in your hands.</span></h2>
           </div>
           <div className="safety-copy">
-            <p>The assistant can read messages and create reply drafts. It never sends, forwards, deletes, archives, or marks messages as read.</p>
-            <p>This is an open setup kit for ChatGPT Work, not a separate email service. Each person connects their own inbox and checks that scheduled tasks are available in their account.</p>
+            <p>The Outlook integration reads inbox messages and saves reply drafts only. There is no send endpoint or send button; your approval stays the final step.</p>
+            <p>Sample emails are fictional. Live Outlook access requires your own Microsoft app registration and private environment variables. This portfolio starter is designed for a single-user demo, not a public multi-user email service.</p>
           </div>
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function Home() {
           <h2>Ready for a calmer<br /><span>way to reply?</span></h2>
         </div>
         <div className="cta-action">
-          <p>Copy the prompt and start your personal setup in ChatGPT Work.</p>
+          <p>Explore the sample inbox or connect Outlook after configuring Microsoft credentials.</p>
           <CopyPromptButton className="button button-primary" />
           <a className="repo-cta" href="https://github.com/Nathan200000000/inbox-assistant" target="_blank" rel="noreferrer">Explore the project on GitHub ↗</a>
         </div>
