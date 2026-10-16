@@ -4,7 +4,7 @@ const steps = [
   {
     number: "01",
     title: "Connect your inbox",
-    text: "Connect Microsoft Outlook securely, or explore the sample inbox without signing in.",
+    text: "Connect Gmail or Microsoft Outlook, or explore the sample inbox without signing in.",
   },
   {
     number: "02",
@@ -82,7 +82,7 @@ export default function Home() {
         <div className="section-intro">
           <p className="eyebrow">SIMPLE TO SET UP</p>
           <h2>More focus.<br /><span>Less inbox.</span></h2>
-          <p>Try the portfolio demo first, then configure Outlook to use your own inbox.</p>
+          <p>Try the portfolio demo, then connect your own Gmail or Outlook inbox.</p>
         </div>
         <div className="steps">
           {steps.map((step) => (
@@ -102,8 +102,8 @@ export default function Home() {
             <h2>Your inbox stays<br /><span>in your hands.</span></h2>
           </div>
           <div className="safety-copy">
-            <p>The Outlook integration reads inbox messages and saves reply drafts only. There is no send endpoint or send button; your approval stays the final step.</p>
-            <p>Sample emails are fictional. Live Outlook access requires your own Microsoft app registration and private environment variables. This portfolio starter is designed for a single-user demo, not a public multi-user email service.</p>
+            <p>Gmail and Outlook integrations read inbox messages and save reply drafts only. There is no send endpoint or send button; your approval stays the final step.</p>
+            <p>Sample emails are fictional. Live Gmail and Outlook access requires OAuth setup. Public Gmail access may require Google verification and a security assessment before anyone can use it.</p>
           </div>
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function Home() {
           <h2>Ready for a calmer<br /><span>way to reply?</span></h2>
         </div>
         <div className="cta-action">
-          <p>Explore the sample inbox or connect Outlook after configuring Microsoft credentials.</p>
+          <p>Explore the sample inbox or connect Gmail or Outlook after configuring OAuth credentials.</p>
           <CopyPromptButton className="button button-primary" />
           <a className="repo-cta" href="https://github.com/Nathan200000000/inbox-assistant" target="_blank" rel="noreferrer">Explore the project on GitHub ↗</a>
         </div>
